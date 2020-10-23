@@ -1,57 +1,83 @@
-// let numberPushed = document.getElementsByClassName("keypad number")
-
-// numberPushed.onclick = function () {
-//     console.log (numberPushed)
-// }
-
-function buttonPushed (nomorYgDitekan) {
+function buttonPushed (ygDitekan) {
     let hasil = document.getElementById("hasil").innerText
-    // let masihNol = true
+    let charTerakhir = hasil[hasil.length-1]
+    let tampungan = ''
 
-    // console.log (hasil)
+    // kalau user iseng diawal2 udah pencet operator, keluar aja
+    if (hasil == 0 &&
+        (ygDitekan === '+' ||
+         ygDitekan === '-' ||
+         ygDitekan === '*' ||
+         ygDitekan === '/' )) {return}
+
+    // kalau user mencet 1 operator setelah sebelumnya pencet operator lain
+    if (charTerakhir === '+' ||
+        charTerakhir === '-' ||
+        charTerakhir === '*' ||
+        charTerakhir === '/') {
+
+            if (ygDitekan === '+' ||
+                ygDitekan === '-' ||
+                ygDitekan === '*' ||
+                ygDitekan === '/') {
+                    
+                    // replace operator yg sebelumnya
+                    for (let i = 0; i < (hasil.length - 1); i++) {
+                        tampungan += hasil[i]
+                    }
+                    tampungan += ygDitekan
+                    document.getElementById("hasil").innerText = tampungan
+                    return
+            }
+            else {
+                document.getElementById("hasil").innerText += ygDitekan
+                return
+            }
+    }
 
     if (hasil == 0) {
-        // masihNol = false
-        document.getElementById("hasil").innerText = nomorYgDitekan
+        document.getElementById("hasil").innerText = ygDitekan
     }
     else {
-        document.getElementById("hasil").innerText += nomorYgDitekan
+        document.getElementById("hasil").innerText += ygDitekan
     }
-
-    console.log (hasil)
 }
 
 function resetCalc () {
     document.getElementById("hasil").innerText = 0
 }
 
-function goCalc() {  // '12+3'
+function goCalc() {
     let ygMauDikalkulasi = document.getElementById("hasil").innerText
-    let num1 = 0
-    let num2 = 0
+    let num1 = ''
+    let num2 = ''
     let operator = undefined
     let tampungan = ''
-    let daftarOperator = '/*-+'
     let angka = '0123456789'
+
+    // kalau user iseng diawal2 udah pencet '='
+    if (ygMauDikalkulasi == 0) {return}
 
     for (let i = 0; i < ygMauDikalkulasi.length; i++) {
         let perKarakter = ygMauDikalkulasi[i]
-        // console.log (perKarakter)
+        console.log (perKarakter)
         
         for (let j = 0; j < angka.length; j++) {
-            tampungan = ''
             
-            if (perKarakter === angka[j]) {
+            if (perKarakter == angka[j]) {
                 tampungan += perKarakter
                 break
-                
             }
-            else {
+            else if (perKarakter === '+' ||
+                     perKarakter === '-' ||
+                     perKarakter === '*' ||
+                     perKarakter === '/') {
                 // simpan angka-nya & operatornya
 
-                num1 = Number(tampungan)
+                num1 = tampungan
                 tampungan = ''
                 operator = perKarakter
+                break
             }
         }
     }
@@ -59,29 +85,23 @@ function goCalc() {  // '12+3'
     // ini dengan asumsi, kalkulator bodoh ini cuma terima 2 angka saja
     num2 = tampungan
 
-    console.log ('num1', num1)
-    console.log ('num2', num2)
-    console.log ('operator', operator)
-
     // sekarang lakukan penghitungan
     switch (operator) {
         case '+':
-            document.getElementById("hasil").innerText = num1 + num2
+            document.getElementById("hasil").innerText = Number(num1) + Number(num2)
             break;
         case '-':
-            document.getElementById("hasil").innerText = num1 - num2
+            document.getElementById("hasil").innerText = Number(num1) - Number(num2)
             break;
         case '*':
-            document.getElementById("hasil").innerText = num1 * num2
+            document.getElementById("hasil").innerText = Number(num1) * Number(num2)
             break;
         case '/':
-            document.getElementById("hasil").innerText = num1 / num2
+            document.getElementById("hasil").innerText = Number(num1) / Number(num2)
             break;
         default:
             document.getElementById("hasil").innerText = 0
             break;
     }
-
-
 }
 
