@@ -12,37 +12,37 @@
     <!-- coba bikin kalkulator kayak di android -->
     <p>coba tiru styling dan fungsi dari android calculator</p>
 
-    <div class="hasil" id="hasil">0</div>
-
-    <div class="row">
-        <div class="keypad number" onclick="buttonPushed(7)">7</div>
-        <div class="keypad number" onclick="buttonPushed(8)">8</div>
-        <div class="keypad number" onclick="buttonPushed(9)">9</div>
-        <div class="keypad operator" onclick="buttonPushed('/')"> / </div>
+    <div class="result-container">
+        <div class="input" id="input">0</div>
+        <div class="mini-preview" id="mini-preview">ini preview</div>
     </div>
-    <br>
 
-    <div class="row">
-        <div class="keypad number" onclick="buttonPushed(4)">4</div>
-        <div class="keypad number" onclick="buttonPushed(5)">5</div>
-        <div class="keypad number" onclick="buttonPushed(6)">6</div>
-        <div class="keypad operator" onclick="buttonPushed('*')">x</div>
+    <div class="numpad-row">
+        <div class="keypad number" onclick="numberPushed(7)">7</div>
+        <div class="keypad number" onclick="numberPushed(8)">8</div>
+        <div class="keypad number" onclick="numberPushed(9)">9</div>
+        <div class="keypad operator" onclick="operatorPushed('/')"> / </div>
     </div>
-    <br>
 
-    <div class="row">
-        <div class="keypad number" onclick="buttonPushed(1)">1</div>
-        <div class="keypad number" onclick="buttonPushed(2)">2</div>
-        <div class="keypad number" onclick="buttonPushed(3)">3</div>
-        <div class="keypad operator" onclick="buttonPushed('-')"> - </div>
+    <div class="numpad-row">
+        <div class="keypad number" onclick="numberPushed(4)">4</div>
+        <div class="keypad number" onclick="numberPushed(5)">5</div>
+        <div class="keypad number" onclick="numberPushed(6)">6</div>
+        <div class="keypad operator" onclick="operatorPushed('*')">x</div>
     </div>
-    <br>
 
-    <div class="row">
+    <div class="numpad-row">
+        <div class="keypad number" onclick="numberPushed(1)">1</div>
+        <div class="keypad number" onclick="numberPushed(2)">2</div>
+        <div class="keypad number" onclick="numberPushed(3)">3</div>
+        <div class="keypad operator" onclick="operatorPushed('-')"> - </div>
+    </div>
+
+    <div class="numpad-row">
         <div class="keypad operator" onclick="resetCalc()">C</div>
-        <div class="keypad number" onclick="buttonPushed(0)">0</div>
+        <div class="keypad number" onclick="numberPushed(0)">0</div>
         <div class="keypad operator" onclick="goCalc()"> = </div>
-        <div class="keypad operator" onclick="buttonPushed('+')">+</div>
+        <div class="keypad operator" onclick="operatorPushed('+')">+</div>
     </div>
 
 
