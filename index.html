@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project ph 0 Hactiv8</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./kalkulator.js"></script>
+</head>
+
+<body>
+    <!-- coba bikin kalkulator kayak di android -->
+    <p>coba tiru styling dan fungsi dari android calculator</p>
+    <p>aduhh.... logic nya belum jalan kak... dikit lagi</p>
+
+    <div class="hasil" id="hasil">0</div>
+
+    <div class="row">
+        <div class="keypad number" onclick="buttonPushed(7)">7</div>
+        <div class="keypad number" onclick="buttonPushed(8)">8</div>
+        <div class="keypad number" onclick="buttonPushed(9)">9</div>
+        <div class="keypad operator" onclick="buttonPushed('/')"> / </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="keypad number" onclick="buttonPushed(4)">4</div>
+        <div class="keypad number" onclick="buttonPushed(5)">5</div>
+        <div class="keypad number" onclick="buttonPushed(6)">6</div>
+        <div class="keypad operator" onclick="buttonPushed('*')">x</div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="keypad number" onclick="buttonPushed(1)">1</div>
+        <div class="keypad number" onclick="buttonPushed(2)">2</div>
+        <div class="keypad number" onclick="buttonPushed(3)">3</div>
+        <div class="keypad operator" onclick="buttonPushed('-')"> - </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="keypad operator" onclick="resetCalc()">C</div>
+        <div class="keypad number" onclick="buttonPushed(8)">0</div>
+        <div class="keypad operator" onclick="goCalc()"> = </div>
+        <div class="keypad operator" onclick="buttonPushed('+')">+</div>
+    </div>
+
+
+</body>
+
+</html>
